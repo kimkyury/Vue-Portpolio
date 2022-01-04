@@ -11,19 +11,20 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-        var KYUContainer = React.createClass({
-            render: function(){
-                return(
-                    <p>{this.props.greetTarget}!, KYU-Container</p> // Step1 
+
+        var Buttonify = React.createClass({
+            render: function() {
+                return (
+                <div> {/* div ->  버튼 안에 자식 컴포넌트을 가지고 있음 */}
+                    <button type={this.props.behavior}>{this.props.children}</button>
+                </div>
                 );
             }
         });
             
         ReactDOM.render( 
             <div>
-            <KYUContainer greetTarget="Hi"/> {/* Step2 */}
-            <KYUContainer greetTarget="Bye"/>
-            <KYUContainer greetTarget="Hey"/>
+                <Buttonify behavior="Sumbit"> KYU-World </Buttonify>
             </div>,
             document.querySelector("#container")
         )
