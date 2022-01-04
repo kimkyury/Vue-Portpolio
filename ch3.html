@@ -1,0 +1,33 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>kyu! kyu! kyu!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var KYUContainer = React.createClass({
+            render: function(){
+                return(
+                    <p>{this.props.greetTarget}!, KYU-Container</p> // Step1 
+                );
+            }
+        });
+            
+        ReactDOM.render( 
+            <div>
+            <KYUContainer greetTarget="Hi"/> {/* Step2 */}
+            <KYUContainer greetTarget="Bye"/>
+            <KYUContainer greetTarget="Hey"/>
+            </div>,
+            document.querySelector("#container")
+        )
+    </script>
+</body>
+</html>
+

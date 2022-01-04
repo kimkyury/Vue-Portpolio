@@ -1,0 +1,33 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>kyu! kyu! kyu!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: rgba(88, 184, 128, 0.623);
+        }
+    
+        #container h1 {
+            font-size:48px;
+            font-family:sans-serif;
+            color: #0f6e35;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var destination = document.querySelector("#container");
+
+        ReactDOM.render(React.createElement("h1", null, "kim kyukyu"), destination);
+
+    </script>
+</body>
+</html>
+
