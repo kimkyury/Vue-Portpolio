@@ -1,0 +1,57 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>kyuStyle in React</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <script type="text/babel">
+            var Letter = React.createClass({
+                render: function() {
+                    var letterStyle = {
+                        padding: 10,
+                        margin: 10,
+                        backgroundColor: this.props.bgcolor,
+                        color: "#333" ,
+                        display: "inline-block",
+                        fontFamily: "monospace",
+                        fontSize: 32,
+                        textAlign: "center"
+                    };
+
+                    return (
+                        <div style={letterStyle}> {/* 클래스 속성 가지도록 만들기 */}
+                            {this.props.children}
+                        </div>
+                    );
+                }
+            });
+
+            var destination = document.querySelector("#container");
+
+            ReactDOM.render(
+                <div>
+                    <Letter bgcolor="#58B3FF">G</Letter>
+                    <Letter bgcolor="#FF605F">Y</Letter>
+                    <Letter bgcolor="#FFD52E">U</Letter>
+                    <Letter bgcolor="#49DD8E">R</Letter>
+                    <Letter bgcolor="#AE99FF">Y</Letter>
+                </div>,
+                destination
+            );
+        </script>
+    </div>
+</body>
+</html>
+
