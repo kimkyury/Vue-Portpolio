@@ -1,0 +1,52 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>ch9</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var Circle = React.createClass({
+            render: function() {
+                var circleStyle = {
+                    padding: 10,
+                    margin: 20,
+                    display: "inline-block",
+                    backgroundColor: this.props.bgColor,
+                    borderRadius: "50%",
+                    width: 100,
+                    height: 100,
+                };
+                    
+                return(
+                    <div style={circleStyle}>
+                    </div>
+                );
+            }
+        });
+
+        var destination = document.querySelector("#container");
+
+        var colors = ["#000000","#393E41", "#E94F37", "1C89BF", "#A1D363", "#85FFC7","#297373", "#FF8552", "#A40E4C" ]
+        var renderData = [];
+
+        for(var i =0; i< colors.length; i++){
+            var color = colors[i];
+            renderData.push(<Circle key={i + color} bgColor = {color}/>); // JSX코드조각 밀어넣기
+        }
+        ReactDOM.render(
+            <div>
+                {renderData}
+            </div>,
+            destination
+        );
+
+    </script>
+</body>
+</html>
+
