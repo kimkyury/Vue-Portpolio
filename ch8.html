@@ -1,0 +1,51 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>kyuCounter</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var LightningCounter = React.createClass({
+            render: function() {
+                return (
+                    //앞으로 채워나갈 공간
+                    <h1> Kyu!</h1> 
+                );
+            }
+        });
+
+        var LightningCounterDisplay = React.createClass({ 
+            render: function() { 
+                // 둥근 모서리의 배경을 위한 스타일 정보를 담고 있는 divStyle객체
+                var divStyle = {
+                    width: 250,
+                    textAlign: "center",
+                    backgroundColor: "black",
+                    padding: 40,
+                    fontFamily: "sans-serif",
+                    color: "#999", 
+                    borderRadius: 10
+                };
+                return (
+                    //LIghtningCounter 컴포넌트를 감싸는 div 엘리먼트를 리턴함 
+                    <div style={divStyle}> 
+                        <LightningCounter/> {/* Counter 집어넣기 */}
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            // 최종결과는 LightningCounterDisplay와 LightningCounter컴포넌트, ReactDOM.render 메소드가 조합된 마크업임.
+            <LightningCounterDisplay/>, 
+            document.querySelector("#container") 
+        );
+        </script>
+    </body>
+</html>
