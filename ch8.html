@@ -12,30 +12,67 @@
     <div id="container"></div>
     <script type="text/babel">
         var LightningCounter = React.createClass({
+            getInitialState: function() { 
+                return {
+                    strikes: 0
+                };
+            },
+            timerTick: function() {
+                this.setState({
+                    strikes: this.state.strikes + 100
+                });
+            },
+            componentDidMount: function() { // *
+                setInterval(this.timerTick, 1000);
+            },
             render: function() {
+                var counterStyle = {
+                    color: "#66FFFF",
+                    fontSize: 50
+                };
+
+                var count = this.state.strikes.toLocaleString();
                 return (
-                    //앞으로 채워나갈 공간
-                    <h1> Kyu!</h1> 
+                    <h1 style={counterStyle}>{count}</h1> // strikes 속성 시각화하게 함
                 );
             }
         });
 
         var LightningCounterDisplay = React.createClass({ 
             render: function() { 
-                // 둥근 모서리의 배경을 위한 스타일 정보를 담고 있는 divStyle객체
+                var commonStyle = {
+                    margin: 0,
+                    padding: 0
+                }
                 var divStyle = {
                     width: 250,
                     textAlign: "center",
-                    backgroundColor: "black",
+                    backgroundColor: "#020202",
                     padding: 40,
                     fontFamily: "sans-serif",
-                    color: "#999", 
+                    color: "#AAAAAA",
                     borderRadius: 10
                 };
+                var textStyles = {
+                    emphasis: {
+                        fontSize: 38,
+                        ...commonStyle
+                    },
+                    smallEmphasis: {
+                        ...commonStyle
+                    },
+                    small: {
+                        fontSize: 17,
+                        opacity: 0.5,
+                        ...commonStyle
+                    }
+                }
                 return (
-                    //LIghtningCounter 컴포넌트를 감싸는 div 엘리먼트를 리턴함 
                     <div style={divStyle}> 
-                        <LightningCounter/> {/* Counter 집어넣기 */}
+                        <LightningCounter/> 
+                        <h2 style={textStyles.smallEmphasis}>KIM KYU RU</h2>
+                        <h2 style={textStyles.emphasis}>KYURY-BLOG</h2>
+                        <p style={textStyles.small}>2022년은 흑호띠, 하지만 나는 용띠</p>
                     </div>
                 );
             }
