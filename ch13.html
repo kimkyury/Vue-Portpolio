@@ -1,0 +1,155 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>KGYURY</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/2.8.1/ReactRouter.min.js"></script>
+
+    <style> /* css 적용하기 */
+        body{
+            background-color: #a2cfa0;
+            padding: 20px;
+            margin: 0;
+        }
+        h1{
+            font-family: 배달의민족 을지로체
+        }
+        
+        h2{
+            font-family: 정선아리랑 혼
+        }
+        
+        ul,ol{
+            font-family: 나눔손글씨 다행체; font-size: 20
+        }
+        
+        p,li  {
+            font-family: 나눔손글씨 범솜체, Helvetica, Arial, sans-serif; font-size:22
+        }
+        ul.header li{
+            display: inline;
+            list-style-type: none;
+            margin: 0;
+        }
+        
+        ul.header{
+            background-color: #111;
+            padding: 0;
+
+        }
+        ul.header li a{
+            color:#fff;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+        .content{
+            background-color: #fff;
+            padding: 20px;
+        }
+        .content h2 {
+            padding: 0;
+            margin: 0;
+        }
+        .content li{
+            margin-bottom: 10px;
+        }
+        .active{
+            background-color:#6f946e
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var { Router, Route, IndexRoute, IndexLink, Link} = ReactRouter;
+
+        var destination = document.querySelector("#container");
+        
+        var App = React.createClass({
+            render: function() {
+                return (
+                    <div>
+                        <h1>KGYURY SPA</h1>
+                        <ul className="header">
+                            <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+                            <li><Link to="/Next" activeClassName="active">Next</Link></li>
+                            <li><Link to="/Next2" activeClassName="active" >Next2</Link></li>
+                        </ul>   
+                        <div className="content">
+                            {this.props.children}
+                        </div>
+                    </div>      
+                )
+            }
+        });
+
+
+        var Home = React.createClass({
+            render: function() {
+                return(
+                    <div>
+                        <h2> 🐶 강아지 </h2>
+                        <p>어린 개를 일컫는 순 우리말, 소의새끼는 송아지 말의 새끼는 망아지라고 부르는 것과 같은 어법을 따라 만들어진 용어.
+                        강아지를 줄여 강쥐라고 부르는 경우도 존재하며, 비슷한 단어로서 강아지의 경상도 사투리로 간지가 있다.
+                        전라도 사투리로는 어원의 개+아지가 그대로 합쳐진 이름인 갱아지가 있으며, 보통 어르신들만 쓴다. </p>
+                        <p> *'갱얼쥐'라는 말도 있는데, 이는 예부터 쓰인 말은 아니고 젊은 층에서 장난으로 꼬아서 발음하는 것이다. </p>
+                        </div>
+                );
+            }
+        });
+
+        var Next = React.createClass({
+            render: function() {
+                return(
+                    <div>
+                        <h2> 🐱 고양이 </h2>
+                        <p> 포유류 식육목 고양잇과의 대표정익 동물이다. 반려동물로써 가축화된 대중적인 동물이지만 그만큼 많은 수가 유기되기도 한다. 이에 따라 도시에 적응하거나 아예
+                            야생 생태계까지 영향을 주게되는 들고양이도 생겼다. 현존하는 모든 고양잇과 동물들은 대략 2000만년 전에 하나의 조상으로부터 갈라져 나온 것으로 추측된다. </p>
+                        <p> *중현견에 육박하거나 덩치가 큰 품종도 존재한다. 메인쿤이나 랙돌 등. </p>
+                        </div>
+                );
+            }
+        });
+
+        var Next2 = React.createClass({
+            render: function() {
+                return(
+                    <div>
+                        <h2> 🐹 햄스터 </h2>
+                        <p> 설치류 쥣과 동물이며 쥐목 비단주시과 비단털쥐아과에 속한 포유류를 뜻한다. 건강한 햄스터는 비단처럼 털이 곱고 부드럽다. 기르는 주인들은 애정으로 햄쥐 또는 햄찌라는 귀여운 어감의
+                            애칭으로 부른다. 1990년대에 들어서부터 흔히 볼 수 있게 되었으며, 2000년 방가방가 햄토리 애니메이션으로 방송 방영 이후 대중적 인지도가 상승했다. 특유의 귀여운 외형, 작고 동글
+                            동글한 체형 때문에 비교적 인기가 많으나 모든 애완동물이 그렇듯이 철저한 관리가 필요하다. </p>
+                        <ol>
+                            <li>시리아햄스터</li>
+                            <li>드워프햄스터</li>
+                            <li>검은배햄스터</li>
+
+                        </ol>
+                        <p> 실험용으로 쓰기 위해 야생의 햄스터를 잡아서 기르기 시작했던 것이 최초의 햄스터 사육이었다.</p>
+                        </div>
+                );
+            }
+        });
+
+
+        ReactDOM.render(
+            <Router>
+                <Route path="/" component={App}>
+                    <IndexRoute component={Home}/>
+                    <Route path="Next" component={Next} />
+                    <Route path="Next2" component={Next2} />
+                </Route>
+            </Router>,
+            destination
+        );
+    </script>
+</body>
+</html>
+
