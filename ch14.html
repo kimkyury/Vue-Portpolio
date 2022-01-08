@@ -1,0 +1,126 @@
+<!DOCYPE html>
+<html>
+
+<head>
+    <title>To KYU List</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.Cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+
+        body{
+            padding: 50px;
+            background-color: #9ce4a0;
+            font-family: 나눔명조 에코 Bold;
+        }
+        .tokyuListMain .header input{
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #fff;
+            
+        }
+        .tokyuListMain .header button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #20b179;
+            color: #FFF;
+            border: 2px solid #20b179;
+        }
+        .tokyuListMain .header button:hober{
+            background-color: #009959;
+            border:2px solid #009959;
+            cursor: pointer;
+        }
+        .toKyuListMain .theList{
+            list-style: none;
+            padding-left: 0;
+            width: 255px;
+        }
+        .toKyuListMain .theList li{
+            color: #333;
+            background-color: rgba(255,255,255,.5);
+            padding: 15px;
+            margin-bottom:15px;
+            border-radius: 5px;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var destination = document.querySelector("#container");
+        
+        var ToKyuItems = React.createClass({
+            render: function() {
+                var toKyuEntries = this.props.entries;
+
+                function createTasks(item) {
+                    return <li key={item.key}>{item.text}</li>
+                }
+
+                var listItems = toKyuEntries.map(createTasks);
+
+                return (
+                    <ul className="theList">
+                        {listItems}
+                    </ul>
+                )
+            }
+
+        });
+
+        var ToKyuList = React.createClass({
+            getInitialState: function() {
+                return{
+                    items: []
+                };
+            },
+            addItem: function(e) {
+                var itemArray = this.state.items;
+                itemArray.push( //객체 추가
+                    {
+                        text:this._inputElement.value,
+                        key:Date.now()
+                    }
+                );
+
+                this.setState({
+                    items: itemArray
+                });
+
+                this._inputElement.value="";
+
+                e.preventDefault();
+            },
+            
+            render: function() {
+                return(
+                    <div className = "tokyuListMain">
+                        <div className="header">
+                            <form onSubmit={this.addItem}>
+                                <input ref={(task) => this._inputElement =task} 
+                                    placeholder="enter task">
+                                </input>
+                                <button type="submit">add</button>
+                            </form>
+                        </div>
+                        <ToKyuItems entries={this.state.items}/>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <div>
+                <ToKyuList/>
+            </div>,
+            destination
+        );
+    </script>
+</body>
+</html>
+
