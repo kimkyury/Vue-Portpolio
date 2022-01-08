@@ -18,7 +18,7 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-        
+
         var destination = document.querySelector("#container");
         var Counter = React.createClass({
             render: function() {
@@ -35,6 +35,7 @@
                 ); 
             }
         });
+
         
         var CounterParent = React.createClass({
             getInitialState: function() {
@@ -84,7 +85,6 @@
                 );
             }
         });
-
         ReactDOM.render(
             <div>
                 <CounterParent/>
