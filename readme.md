@@ -1,3 +1,3 @@
 # KYUrectice-React
-## 도서
+## 가이드 도서
 - 러닝 리액트
