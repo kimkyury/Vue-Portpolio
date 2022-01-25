@@ -5,29 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href = "style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <title>Kgyury</title>
     <script src="https://kit.fontawesome.com/b1dd6241c5.js" crossorigin="anonymous"></script>
+    <script src = "main.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="navbar_logo">
+        <div class="navbar__logo">
             <i class="fas fa-dog"></i>
             <a href="">Co-kgyury</a>
         </div>
         
-        <ul class ="navbar_menu">
+        <ul class ="navbar__menu">
             <li><a href="">Home</a></li>
             <li><a href="">Tistory</a></li>
             <li><a href="">Github</a></li>
             <li><a href="">Velog</a></li>
             <li><a href="">Youtube</a></li>
-
         </ul>
 
-        <ul class="navbar_links">
-            <i class="far fa-building"></i>
-            <i class="fas fa-home"></i>
+        <ul class="navbar__icons">
+            <li><i class="far fa-building"></i> </li> 
+            <li><i class="fas fa-home"></i> </li>
         </ul>
+
+        <a href="#" class="navbar__toogleBtn"> 
+            <i class="fas fa-hamburger"></i>    
+        </a>
     </nav>    
 </body>
 </html>
