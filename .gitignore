@@ -145,5 +145,8 @@ psd
 thumb
 sketch
 
+
+package-lock.json
+
 base.html
 # End of https://www.toptal.com/developers/gitignore/api/react,node
