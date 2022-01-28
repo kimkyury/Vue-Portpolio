@@ -4,6 +4,7 @@ span, div {
     border:1px solid rgb(129, 129, 85)
 }
 
+/* relative */
 .top {
     position:relative;
     top: 5px;
@@ -20,4 +21,31 @@ span, div {
 .right {
     position:relative;
     right: 5px;
+}
+
+/* absolute */
+#absolute{
+    background-color: rgb(138, 165, 65);
+    position: absolute;
+    right:0;
+}
+
+#parent {
+    background-color: rgb(121, 145, 56);
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+#child {
+    background-color: rgb(207, 235, 51);
+    position: absolute;
+    right:0;
+}
+
+
+/* fixed */
+#fixed{
+    position: fixed;
+    right:0;
 }
